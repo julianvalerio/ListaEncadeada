@@ -22,33 +22,6 @@ Lista* lst_insere(Lista *l, int i)
     return novo;
 }
 
-Lista* lst_insere_ordenado (Lista* l, int v){
-    Lista* novo;
-    Lista* ant = NULL; /* ponteiro para elemento anterior */
-    Lista* p = l; /* ponteiro para percorrer a lista */
-    /* procura posição de inserção */
-    while (p != NULL && p->info < v)
-    {
-        ant = p;
-        p = p->prox;
-    }
-    /* cria novo elemento */
-    novo = (Lista*) malloc(sizeof(Lista));
-    novo->info = v;
-    /* encadeia elemento */
-    if (ant == NULL)
-    {
-        /* insere elemento no início */
-        novo->prox = l;
-        l = novo;
-    }
-    else   /* insere elemento no meio da lista */
-    {
-        novo->prox = ant->prox;
-        ant->prox = novo;
-    }
-    return l;
-}
 
 //imprime os elementos da lista
 void lst_imprime(Lista* l)
